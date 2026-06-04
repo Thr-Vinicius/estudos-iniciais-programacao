@@ -1,0 +1,39 @@
+# Estrutura do repositório
+
+```txt
+  .gitignore
+  README.md
+  01-python-basico/
+    adicao.py
+    adivinhacao.py
+    booleano.py
+    contas_exemplo.py
+    data_nascimento_aproximada.py
+    doacao_sangue.py
+    funcoes.py
+    listas.py
+    nota.py
+    notas_alunos_for.py
+    notas_alunos_while.py
+    operacao_simples.py
+    senha.py
+    tabuada.py
+    variaveis.py
+    vetores_matrizes.py
+    while_basico.py
+  02-automacoes/
+    README.md
+    cnae_auto.py
+    coordenadas_mouse_hyprland.py
+    escrever_automatico.py
+  03-web/
+    exercicios-html-css/
+      Site.Atividade.html
+      SitesTabelas.html
+      style.css
+    pokesource/
+      README.md
+      server.js
+      public/
+        index.html
+```

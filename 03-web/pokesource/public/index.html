@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokeSource</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      width: 90px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 70%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 20px;
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img
+      class="logo"
+      src="https://www.freepnglogos.com/uploads/pokemon-symbol-logo-png-31.png"
+      alt="Logo PokéAPI"
+    >
+    <h1>PokeSource</h1>
+
+    <input type="text" id="campo" placeholder="Ex: pikachu">
+    <br>
+    <button onclick="buscar()">Buscar</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    async function buscar() {
+      const nome = document.getElementById('campo').value.trim();
+      const resultado = document.getElementById('resultado');
+
+      if (nome === '') {
+        resultado.innerHTML = '<p>Digite o nome de um Pokémon.</p>';
+        return;
+      }
+
+      resultado.innerHTML = '<p>Carregando...</p>';
+
+      try {
+        const resposta = await fetch(`/api/pokemon/${nome}`);
+        const data = await resposta.json();
+
+        if (data.erro) {
+          resultado.innerHTML = `<p>${data.erro}</p>`;
+          return;
+        }
+
+        resultado.innerHTML = `
+          <h2>${data.nome}</h2>
+          <img src="${data.foto}" alt="Imagem de ${data.nome}">
+        `;
+      } catch (erro) {
+        resultado.innerHTML = '<p>Erro. Tente de novo.</p>';
+      }
+    }
+  </script>
+</body>
+</html>

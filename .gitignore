@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Sistema/editor
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Backups e compactados
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Documentos de aula não relacionados ao código
+*.odt
+*.docx
+*.pdf
